@@ -31,9 +31,18 @@ function preOrder(node) {
 
 function postOrder(node) {
   // your code here
+  if (node === null) {
+    return ''
+  }
+
+  
+  let result = postOrder(node.left)
+  result += postOrder(node.right)
+  result += `${node.data} `
+  return result
 }
 
-const tree = arrayToTree([10, 1, 2, 3, 4, 5, 6], 0)
+const tree = arrayToTree([2, 7, 5, 2, 6, 0, 9], 0)
 console.log(postOrder(tree))
 //=> 3 4 1 5 6 2 10
 
